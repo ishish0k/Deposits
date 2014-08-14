@@ -6,7 +6,7 @@ var radius = 5;
 
 var getArea = function (r) {
     var area = r * r * pi;
-    console.log(area);
+    console.log(name + "'s circle has" + area + " area, and " +message);
 };
 
 getArea(2);
