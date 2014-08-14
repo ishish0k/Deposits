@@ -1,0 +1,1 @@
+﻿//alert("JavaScript works!"); // Ismael Iribe// 05AUG2014// SDI 0814// Hell World Activity// My first output    console.log("Hello World!");
