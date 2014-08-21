@@ -6,15 +6,18 @@ var json = {
     "bugs": {
         "001": {   
         "name": "beetle",
-        "size": 20
+        "size": 20,
+        "legs":6
         },
         "002":{
         "name": "mantis",
-        "size": 15
+        "size": 15,
+        "legs": 6
         },
         "003":{
         "name": "scorpion",
-        "size": 9
+        "size": 9,
+        "legs":8
         }
     }
 };
@@ -24,20 +27,23 @@ var json = {
 var json2 = {
     "bugs": [
         {
-            "bugid" : "001",
+            "insectid" : "001",
             "name": "beetle",
-            "size": 20
+            "size": 20,
+            "legs":6
         },
         {
-            "bugid" : "002",
+            "insectid" : "002",
             "name" : "mantis",
-            "size" : 15  
+            "size" : 15,
+            "legs":6
             
         },
         {
-            "bugid" : "003",
+            "insectid" : "003",
             "name" : "scorpion",
-            "size" : 9  
+            "size" : 9,
+            "legs":8
         }
     ]
 };
