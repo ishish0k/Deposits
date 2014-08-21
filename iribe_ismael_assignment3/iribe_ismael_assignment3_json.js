@@ -19,31 +19,27 @@ var json = {
     }
 };
 
-for (var key in json.bugs) {
-    var bugs = json.bugs[key];
-};
-//bug size
-console.log (bugs);
+
 
 var json2 = {
     "bugs": [
         {
-            "buid": "001",
+            "bugid" : "001",
             "name": "beetle",
             "size": 20
         },
         {
-            "buid": "002",
-            "name": "mantis",
-            "size": 15  
+            "bugid" : "002",
+            "name" : "mantis",
+            "size" : 15  
             
         },
         {
-            "buid":"003",
-            "name": "scorpion",
-            "size": 9  
-        },
-        
-        
+            "bugid" : "003",
+            "name" : "scorpion",
+            "size" : 9  
+        }
     ]
-}
+};
+
+console.log (json2);
