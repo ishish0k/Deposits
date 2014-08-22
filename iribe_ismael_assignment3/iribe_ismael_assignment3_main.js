@@ -6,8 +6,20 @@
 var critterTypes = ["Arachnid", "Bug", "Not Bug"];
 var insectLegs = prompt("How many legs do bugs have? Pick between 1 and 8:", "");
 insectLegs = parseInt (insectLegs);
-var insect = 8;// iterator, counter
+var insectsUnderbed = function(crawlUnder) {
+    var bugs = 8,
+    bugsUnderBed;
+    if (crawlUnder<bugs) {
+        console.log("Catch the bugs before they go under.");
+        return 0;
+    }
+    bugsUnderBed = Math.floor(crawlUnder/bugs);
+    return bugsUnderBed;
+};
 
+var bugsNotStepped = insectsUnderbed(4);
+console.log ("You only caught a few bugs.")
+var insect = 8;// iterator, counter
 while (insect > 0) {
     console.log(insect + " Rooms to clean after.");
     insect--;
@@ -96,14 +108,14 @@ var handleData = function (json) {
     {
      console.log("This is a bug.");  
     }
-    if (bugs.legs === 8 )
-    {
-     console.log("This is in the arachnid family.");  
-    } 
     if (bugs.legs === 7)
     {
         console.log("Must be that spider that lost his peg leg.");
     }
+    if (bugs.legs === 8 )
+    {
+     console.log("This is in the arachnid family.");  
+    } 
     };
 };
 
