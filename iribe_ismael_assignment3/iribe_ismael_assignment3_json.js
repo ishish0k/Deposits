@@ -47,5 +47,3 @@ var json2 = {
         }
     ]
 };
-
-console.log (json2);

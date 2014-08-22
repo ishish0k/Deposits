@@ -3,9 +3,51 @@
 //21Aug2014
 
 
-
+var critterTypes = ["Arachnid", "Bug", "Not Bug"];
 var insectLegs = prompt("How many legs do bugs have? Pick between 1 and 8:", "");
 insectLegs = parseInt (insectLegs);
+var insect = 8;// iterator, counter
+
+while (insect > 0) {
+    console.log(insect + " Rooms to clean after.");
+    insect--;
+    
+};/* will continue if you are using nothing
+    * that is variable in your condition*/
+    console.log("No more rooms to clean. Take a break.")
+
+// for-loop
+for (var insect = 4; insect > 0; insect--){
+       console.log(insect + " rooms to clean.");
+    
+ };
+while (insect > 0) {
+    console.log(insect + " little legged critter crawled under your bed.");
+    insect--;
+    
+};/* will continue if you are using nothing
+    * that is variable in your condition*/
+    console.log("I think that's all the things that crawled under your bed.")
+
+// for-loop
+for (var insect = 8; insect > 0; insect--){
+       console.log(insect + " ");
+    
+ };
+ 
+    console.log("I think thats all of the bugs.")
+
+console.log(critterTypes);
+
+critterTypes[2] = "Anthropod";
+console.log(critterTypes);
+critterTypes[3] = "Scorpion";
+var lastCritter = critterTypes.pop();
+
+console.log ("The last type of critter in the list was " + lastCritter);
+console.log(critterTypes);
+
+
 
 switch (insectLegs) {
     case 1:
@@ -38,60 +80,10 @@ switch (insectLegs) {
         break;  
 }
 
-var critterTypes = ["Bugs", "Arachnids", "Arthropods"];
-
-console.log(critterTypes);
-
-critterTypes[0] = "Bugs";
-
-console.log(critterTypes);
-critterTypes[3] = "Crustaceans";
-critterTypes[4] = "Rats";
-console.log(critterTypes);
-
-console.log("The length of the array "+ critterTypes.length);
-console.log(critterTypes);
-
-critterTypes[critterTypes.length]= "Jane";
-console.log(critterTypes);
-console.log("You have  " + critterTypes.length + " under your bed.");
-
-
-critterTypes.unshift("beetles");//unshift to the front, push to the back
-console.log(critterTypes);
-
-var lastCritter = critterTypes.pop();
-
-console.log ("You first collected " + lastCritter);
-console.log(critterTypes);
-
-var firstCritter = critterTypes.shift();
-
-console.log ("You must like to collect " + firstCritter);
-console.log(critterTypes);
-
-for (var i = 0; i< critterTypes.length; i++) {
-    if (critterTypes[i] === "rat"){
-        
-       console.log(critterTypes[i]+ " This is not a insect it's a mammal."); 
-        
-    } else{
-        
-        console.log(critterTypes[i]+" At least they are in the same family of arthropods.")
-        
-    };
-    
-    //console.log("Index " + i + ": " + critterTypes[i]);
-    
-    
-}
-
-
-
 var handleData = function (json) {
     for (var i = 0; i < json.bugs.length; i++){
         var bugs = json.bugs[i];
-        console.log("It's just a " + bugs.name + "and it is  " + bugs.size + "centimiters, has " + bugs.legs + " legs.");
+        console.log("It's just a " + bugs.name + " and it is  " + bugs.size + " centimiters, has " + bugs.legs);
     if (bugs.legs >=0 && bugs.legs <=5)
     {
         console.log("This is not a bug!");
