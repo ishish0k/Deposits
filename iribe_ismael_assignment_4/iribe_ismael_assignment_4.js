@@ -22,7 +22,7 @@ function testString(theCharacters, i) {// defining the function
     console.log ("This value is a " + theTest + " listed phone number.");
 
 //Email Function to test email if correct value.
-var email = "aaaa@f.ghi";
+var email = "aaa@fff.ghi";
 
 function emailString(email) {
     
@@ -31,8 +31,8 @@ function emailString(email) {
     //divide the email into parts
     var emailAt = email.split('@'),
     // makes sure there are two parts after @
-        emailDomain = emailFirst = emailSection[0],
-        emailDomain = emailSection[1],
+        emailFirst = emailAt[0],
+        emailDomain = emailAt[1],
         emailPeriod = emailDomain.split('.'),
         validChars = ['a','b','c','d',
                       'e','f','g','h','i',
@@ -48,7 +48,7 @@ function emailString(email) {
     
 
     //check if atleast 1 characters before @ and after @
-    if (emailFirst.length < 1 || emailDomain.length < 7) {
+    if (emailFirst.length < 1 || emailDomain.length < 3) {
         console.log("Too many characters before @");
         return false;
         
@@ -60,22 +60,31 @@ function emailString(email) {
             return false;
         }
     }
-    //Same rule for Domain
-    for(var j = 0; j < emailDomain.length; j += 3) {
-        if(validChars.indexOf(emailDomain.charAt(j)) < 0) {
-            alert("Wrong number or values in Domain.");
-            return false;   
-        }
-    }
-    //Rule for period
-    var emailPeriod = emailDomain.split('.');
-    if (emailPeriod[emailPeriod.length - 3].length <3) {
-        console.log("Put a period in the right place");
+    if (emailDomain.indexOf ('.')<=0) {
+        console.log("Can have period but not start with it.");
         return false;
     }
+    //Same rule for first part of email
+    for (var i = emailFirst.length - 1; i >= 0; i--) {
+        if(validChars.indexOf(emailDomain.charAt(i)) < 0) {
+            console.log("Wrong number or values in Domain.");
+            return false;   
+        }
+    };
+    //Rule for Domain
+    for (var i = emailDomain.length - 1; i >= 0; i--) {
+        if (validChars.indexOf(emailDomain[i]) < 0) {
+            console.log("Wrong number of values.")
+        }
+    };
+    if (emailPeriod[emailPeriod.length - 1].length < 3) {
+        console.log ("Has to be atleast 3 characters from the end.");
+        return false;
+    }
+    
     console.log ("Email valid.");
     return true;
-}
+};
 
     var emailTest = emailString("aaa@bbb.ccc");//Test String email
     console.log("This value is a " + emailTest + " email.");
