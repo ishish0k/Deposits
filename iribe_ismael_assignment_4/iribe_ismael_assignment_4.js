@@ -22,32 +22,38 @@ function testString(theCharacters, i) {// defining the function
     console.log ("This value is a " + theTest + " listed phone number.");
 
 //Email Function to test email if correct value.
-var email = "abc@def.ghi";
+var email = "aaaa@f.ghi";
 
 function emailString(email) {
+    
+    if(typeof email === 'undefined') return null;
+    if(typeof email !== 'string' || email.indexOf('@') === -1) return false;
     //divide the email into parts
-    var emailAt = email.split('@');
-    
-    if (emailAt.length !== 3) {
-        console.log("The @ sign in the right place");
-        return false;
-    }
-    
-var emailFirst = emailSection[0];
-var emailDomain = emailSection[1];
-    //check if 3 characters before @ and after @
-    if (emailFirst.length < 3 || emailDomain.length<3) {
-        console.log("Too many or characters after @");
-        return false;
-        
-    }
-    //define the valid characters to use A-Z and Numbers.
-    var validChars = ['a','b','c','d',
+    var emailAt = email.split('@'),
+    // makes sure there are two parts after @
+        emailDomain = emailFirst = emailSection[0],
+        emailDomain = emailSection[1],
+        emailPeriod = emailDomain.split('.'),
+        validChars = ['a','b','c','d',
                       'e','f','g','h','i',
                       'j','k','l','m','n','o',
                       'p','q','r','s','t','u','v',
                       'w','x','y','z','.','0','1','2',
                       '3','4','5','6','7','8','9','_','-'];
+        
+    if (emailAt.length !== 2) {
+        console.log("Too many parts");
+        return false;
+    }
+    
+
+    //check if atleast 1 characters before @ and after @
+    if (emailFirst.length < 1 || emailDomain.length < 7) {
+        console.log("Too many characters before @");
+        return false;
+        
+    }
+    //define the valid characters to use A-Z and Numbers.
     for (var i = 0; i < emailFirst.length; i += 3) {
         if (validChars.indexOf(emailFirst.charAt(i))<0) {
             console.log ("Wrong use of characters");
@@ -55,7 +61,7 @@ var emailDomain = emailSection[1];
         }
     }
     //Same rule for Domain
-    for(var j = 0; j < emailDomain.length; j += 1) {
+    for(var j = 0; j < emailDomain.length; j += 3) {
         if(validChars.indexOf(emailDomain.charAt(j)) < 0) {
             alert("Wrong number or values in Domain.");
             return false;   
@@ -63,7 +69,7 @@ var emailDomain = emailSection[1];
     }
     //Rule for period
     var emailPeriod = emailDomain.split('.');
-    if (emailPeriod[emailPeriod.length - 1].length <3) {
+    if (emailPeriod[emailPeriod.length - 3].length <3) {
         console.log("Put a period in the right place");
         return false;
     }
