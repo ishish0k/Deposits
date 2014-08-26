@@ -92,5 +92,12 @@ function emailString(email) {
     console.log ("This value is a " + emailTest + " email.");
     emailTest = testString("1234567890")//Incorrect check no -
     console.log ("This value is a " + emailTest + " email.");
+    
+var webAddress = "http:"
+var secAddress = "https:";
+
+console.log("If contains HTTP: will be " + secAddress.contains("https:")+ " Valid address.");//true
+console.log("If contains HTTS: will be " + webAddress.contains("http:")+ " Valid address.");//true
+
 
 
