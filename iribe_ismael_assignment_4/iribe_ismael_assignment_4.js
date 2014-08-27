@@ -93,11 +93,30 @@ function emailString(email) {
     emailTest = testString("1234567890")//Incorrect check no -
     console.log ("This value is a " + emailTest + " email.");
     
-var webAddress = "http:"
+var webAddress = "http:www.google.com";
 var secAddress = "https:";
 
-console.log("If contains HTTP: will be " + secAddress.contains("https:")+ " Valid address.");//true
-console.log("If contains HTTS: will be " + webAddress.contains("http:")+ " Valid address.");//true
+// breaking down function to see if a website
+var webSear = function(webLink) {
+    //instead of quoting I used .contains in the link. I know this will search anywhere in address.
+    if (webLink.contains("https:")) {
+        console.log ("This is a secure web address.")
+        return true;
+    } if (webLink.contains("http:")) {
+        console.log("This is a unsecure website link.")
+        return true;
+    } else {
+        return false;
+    }
+    
+};
+
+var webTest = webSear("http:www.google.com");
+console.log("This address is a " + webTest + " web adress.");
+webTest = webSear ("https://www.google.com");//true
+console.log("This address " + webTest + " web address.");//true
+webTest = webSear ("httr://www.google.com/http");//true
+console.log("This address " + webTest + " web address.");//true
 
 
 
