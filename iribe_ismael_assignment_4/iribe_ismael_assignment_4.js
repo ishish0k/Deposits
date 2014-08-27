@@ -118,5 +118,27 @@ console.log("This address " + webTest + " web address.");//true
 webTest = webSear ("httr://www.google.com/http");//true
 console.log("This address " + webTest + " web address.");//true
 
+//String split into words and upper case
+
+var upCase = function (simpleWord){
+    var word = simpleWord.split(" ");// determening were in the string the space is
+    for ( var i = 0; i < word.length; i++ )//begin ri;e
+    {
+        var j = word[i].charAt(0).toUpperCase();//uppercase the first character.
+        word[i] = j + word[i].substr(1);
+    }
+    return word.join(" "); //return the string 
+};
 
 
+var wordTest = upCase("hello world");
+console.log("Split and uppercased " + wordTest + ".");
+
+//replace comma with slash
+
+var commaRemoval = function(val) {
+    var values = val.value;
+    val.replace(/,/, "/");
+};
+var replacedWith = commaRemoval("a,b,c");
+console.log ("This string " + replacedWith);
