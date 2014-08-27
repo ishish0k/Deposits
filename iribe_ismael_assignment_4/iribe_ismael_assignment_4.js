@@ -136,9 +136,33 @@ console.log("Split and uppercased " + wordTest + ".");
 
 //replace comma with slash
 
-var commaRemoval = function(val) {
-    var values = val.value;
-    val.replace(/,/, "/");
+String.prototype.replaceAll = function(comma, replacing) {
+  return this.split(comma).join(replacing);
 };
-var replacedWith = commaRemoval("a,b,c");
-console.log ("This string " + replacedWith);
+array = new Array("a1,a2,a3")
+
+for (i = 0; i < array.length; ++i) {
+    array[i] = array[i].replaceAll(",","/")
+}
+
+console.log ('This string "a,b,c" replaced to ' + array);
+
+//format number
+
+var num = 2.1;
+var n = num.toFixed(2);
+
+console.log ("Change 2.1 to " + n);//change to 2.10
+
+//fuzzy number;
+
+var fuzzyNum = function (numbr, comparison, percent) {
+    var percentage = (numbr/comparerison) *100;
+    if ((numbr >= comparerison && percentage >= percent)){
+        return true;
+    } else {((numbr <= comparison && percentage <= percent))
+        return false;
+    }
+};
+
+var fuzzTest = fuzzyNum ()
