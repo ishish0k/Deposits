@@ -136,13 +136,13 @@ console.log("Split and uppercased " + wordTest + ".");
 
 //replace comma with slash
 
-String.prototype.replaceAll = function(comma, replacing) {
+var replace = function(comma, replacing) {
   return this.split(comma).join(replacing);
 };
-array = new Array("a1,a2,a3")
+var array = new Array("a1,a2,a3");
 
 for (i = 0; i < array.length; ++i) {
-    array[i] = array[i].replaceAll(",","/")
+    array[i] = array[i].replace(/,/g,"/");//replace all /g
 }
 
 console.log ('This string "a,b,c" replaced to ' + array);
@@ -156,13 +156,41 @@ console.log ("Change 2.1 to " + n);//change to 2.10
 
 //fuzzy number;
 
-var fuzzyNum = function (numbr, comparison, percent) {
-    var percentage = (numbr/comparerison) *100;
-    if ((numbr >= comparerison && percentage >= percent)){
+var fuzzyNumDiff = function (fuzzNumOne, fuzzNumTwo, fuzzNumPerc) {
+    if ((fuzzNumOne< fuzzNumTwo - ((fuzzNumPerc/100)*fuzzNumTwo)) || (fuzzNumOne> fuzzNumTwo + ((fuzzNumPerc/100)*fuzzNumTwo))) {
+        return false;     
+    } else {
         return true;
-    } else {((numbr <= comparison && percentage <= percent))
-        return false;
     }
 };
 
-var fuzzTest = fuzzyNum ()
+var fuzzTest = fuzzyNumDiff (11, 10, 12);
+console.log ("The difference is " + fuzzTest + " percent difference from initial number.");
+
+//Number of Hours between dates
+
+var date1 = '2011-12-24';
+var date2 = '2012-01-01';
+
+// First we split the values to arrays date1[0] is the year, [1] the month and [2] the day
+date1 = date1.split('-');
+date2 = date2.split('-');
+
+// Now we convert the array to a Date object, which has several helpful methods
+date1 = new Date(date1[0], date1[1], date1[2]);
+date2 = new Date(date2[0], date2[1], date2[2]);
+
+// We use the getTime() method and get the unixtime (in milliseconds, but we want seconds, therefore we divide it through 1000)
+date1_unixtime = parseInt(date1.getTime() / 1000);
+date2_unixtime = parseInt(date2.getTime() / 1000);
+
+// This is the calculated difference in seconds
+var timeDifference = date2_unixtime - date1_unixtime;
+
+// in Hours
+var timeDifferenceInHours = timeDifference / 60 / 60;
+
+// and finaly, in days :)
+var timeDifferenceInDays = timeDifferenceInHours  / 24;
+
+console.log(timeDifferenceInDays);
