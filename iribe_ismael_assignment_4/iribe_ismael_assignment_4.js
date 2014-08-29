@@ -4,6 +4,7 @@
 //24Aug14
 
 //String Phone Number Pattern//
+//Assignment two Technical/boolean make up
 function testString(theCharacters, i) {// defining the function
     i = i || 0;// defining interger
     if (theCharacters.length !=12) return false;//if it doesn't equal length of 12 characters
@@ -22,8 +23,9 @@ function testString(theCharacters, i) {// defining the function
     console.log ("This value is a " + theTest + " listed phone number.");
 
 //Email Function to test email if correct value.
+//Assignment Two Technical/Functions
 var email = "aaa@fff.ghi";
-
+//Project 3 code encapsulation make up
 function emailString(email) {
     
     if(typeof email === 'undefined') return null;
@@ -169,28 +171,61 @@ console.log ("The difference is " + fuzzTest + " percent difference from initial
 
 //Number of Hours between dates
 
-var date1 = '2011-12-24';
-var date2 = '2012-01-01';
+var dateOne = '2012-12-24';
+var dateTwo = '2012-01-01';
+dateOne = dateOne.split('-');
+dateTwo = dateTwo.split('-');
 
-// First we split the values to arrays date1[0] is the year, [1] the month and [2] the day
-date1 = date1.split('-');
-date2 = date2.split('-');
 
-// Now we convert the array to a Date object, which has several helpful methods
-date1 = new Date(date1[0], date1[1], date1[2]);
-date2 = new Date(date2[0], date2[1], date2[2]);
+dateOne = new Date(dateOne[0], dateOne[1], dateOne[2]);
+dateTwo = new Date(dateTwo[0], dateTwo[1], dateTwo[2]);
 
-// We use the getTime() method and get the unixtime (in milliseconds, but we want seconds, therefore we divide it through 1000)
-date1_unixtime = parseInt(date1.getTime() / 1000);
-date2_unixtime = parseInt(date2.getTime() / 1000);
 
-// This is the calculated difference in seconds
-var timeDifference = date2_unixtime - date1_unixtime;
+var hours = Math.abs(dateOne-dateTwo) / 36e5;
 
-// in Hours
-var timeDifferenceInHours = timeDifference / 60 / 60;
+console.log("Time difference in dates " + hours);
 
-// and finaly, in days :)
-var timeDifferenceInDays = timeDifferenceInHours  / 24;
+//Change variable to "variable"
 
-console.log(timeDifferenceInDays);
+    var chgToNum = function(number){
+        return parseInt(number);
+        };
+        
+var chgNum= chgToNum("42");
+console.log("Change a string to a number " +chgNum);
+
+// find the smallest number in an array
+
+
+var nmArray = [3,6,7,8];
+
+var nmSmallest = function(q){
+    return Math.min.apply (0,nmArray.filter (
+    function(q) { return q>this;
+    }, q)) || 0;
+};
+
+var nmMin = nmSmallest(5);
+
+console.log ("This is the smallest number returned " + nmMin);
+//Sum array numbers
+
+var sum = 0;
+
+for (var i = 0; i<nmArray.length; i++) {
+  if (!isNaN(parseInt(nmArray[i]))) { sum += nmArray[i]; }
+};
+
+console.log("The sim of the array is "+ sum);
+
+
+//Sort the array
+
+var sortArray = function (strArray, givenKey) {
+    return (strArray.sort(function(a)
+                          { return a[givenKey];
+                          }));
+};
+
+var sortedArray = sortArray ("a"+[{a:2},{a:3},{a:1}]);
+console.log ("This array sorted gives " + sortedArray);
